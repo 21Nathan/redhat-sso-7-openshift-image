@@ -165,8 +165,29 @@
             "displayName": "Container Memory Limit",
             "description": "Container memory limit.",
             "name": "MEMORY_LIMIT",
-            "value": "1Gi",
-            "required": false
+            "value": "2Gi",
+            "required": true
+        },
+        {
+            "displayName": "Container Memory Request",
+            "description": "Container memory Request",
+            "name": "MEMORY_REQUEST",
+            "value": "300Mi",
+            "required": true
+        },
+        {
+            "displayName": "Container CPU Limit",
+            "description": "Container CPU limit.",
+            "name": "CPU_LIMIT",
+            "value": "2",
+            "required": true
+        },
+                {
+            "displayName": "Container CPU Request",
+            "description": "Container CPU Request",
+            "name": "CPU_REQUEST",
+            "value": "300m",
+            "required": true
         }
     ],
     "objects": [
@@ -330,13 +351,18 @@
                     "spec": {
                         "terminationGracePeriodSeconds": 75,
                         "containers": [
-                            {
+                           {
                                 "name": "${APPLICATION_NAME}",
                                 "image": "${APPLICATION_NAME}",
                                 "imagePullPolicy": "Always",
                                 "resources": {
                                     "limits": {
+                                        "cpu" : "${CPU_LIMIT}",
                                         "memory": "${MEMORY_LIMIT}"
+                                    },
+                                    "requests": {
+                                        "cpu" : "${CPU_REQUEST}",
+                                        "memory": "${MEMORY_REQUEST}"
                                     }
                                 },
                                 "volumeMounts": [

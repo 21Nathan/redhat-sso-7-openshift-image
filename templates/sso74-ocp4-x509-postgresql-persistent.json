@@ -182,7 +182,7 @@
             "value": "2",
             "required": true
         },
-                {
+        {
             "displayName": "Container CPU Request",
             "description": "Container CPU Request",
             "name": "CPU_REQUEST",

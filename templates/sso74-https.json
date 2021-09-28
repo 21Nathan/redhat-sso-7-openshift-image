@@ -208,7 +208,7 @@
             "description": "Container memory limit.",
             "name": "MEMORY_LIMIT",
             "value": "300Mi",
-            "required": false
+            "required": true
         }
     ],
     "objects": [
